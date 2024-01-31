@@ -34,8 +34,9 @@ public class EmployeeService {
     }
     public List<EmployeeResponse> getByDepart(String dname){
         List<Employee> employees=employeeRepository.findAll();
-        List<Employee> employees1= (List<Employee>) employees.stream()
-                .filter(employee -> employee.getDepartment().equals(dname));
+        List<Employee> employees1= employees.stream()
+                .filter(employee -> employee.getDepartment().equals(dname))
+                .collect(Collectors.toList());
         return employees1.stream()
                 .map(employee -> modelMapper.map(employee, EmployeeResponse.class))
                 .collect(Collectors.toList());

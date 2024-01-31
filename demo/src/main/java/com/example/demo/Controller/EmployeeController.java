@@ -30,10 +30,9 @@ public class EmployeeController {
         return employeeService.getById(id);
     }
 
-    @GetMapping("/employees/{dname}")
+    @GetMapping("/employees")
         public List<EmployeeResponse>  employeeByDept(@RequestParam String dname){
         return employeeService.getByDepart(dname);
-
-        }
+    }
     }
 
